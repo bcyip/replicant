@@ -41,3 +41,16 @@ npm run start
 ```
 
 Once both are running, you can connect to `http://localhost:7777` (note the port!) to interact with the chatbot. Any change to the server or client code will automatically recompile and restart the appropriate process.
+
+### Run Tests
+Build and run the Docker image for the app as follows:
+
+```shell
+docker build -t chatbot-challenge .
+docker run -p 4444:4444 chatbot-challenge
+```
+
+Open a new terminal and run the following command in chatbot-challenge/server
+```
+rspec
+```

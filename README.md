@@ -52,5 +52,8 @@ docker run -p 4444:4444 chatbot-challenge
 
 Open a new terminal and run the following command in chatbot-challenge/server
 ```
+cd spec
+bundle install
+cd ..
 rspec
 ```

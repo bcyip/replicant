@@ -4,12 +4,15 @@ require_relative 'websocket-client-simple-patch'
 class Chat
   attr_reader :ws
 
+  PORT = ENV["PORT"] || 4444
+
   def initialize
     @response_msg = "no message"
-    @ws = WebSocket::Client::Simple.connect 'ws://localhost:4444'
+    @ws = WebSocket::Client::Simple.connect "ws://localhost:#{PORT}"
 
     @ws.on :message do |msg|
       @response_msg = msg.data
+
     end
 
     @ws.on :open do

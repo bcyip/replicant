@@ -50,10 +50,17 @@ docker build -t chatbot-challenge .
 docker run -p 4444:4444 chatbot-challenge
 ```
 
+If this is the FIRST time running the tests open a new terminal and run the following command in chatbot-challenge/server `cd spec && bundle install`
+
 Open a new terminal and run the following command in chatbot-challenge/server
 ```
-cd spec
-bundle install
-cd ..
-rspec
+rspec # run all tests
+rspec --tag type:<value>  # run subset of tests
 ```
+
+#### Existing test subsets
+| Test Type               | value            |
+| :-------------          | :-----:          |
+| input_spec.rb           | input_validation |
+| reminders_add_spec.rb   | add_reminders    |
+|  reminders_list_spec.rb | list_reminders   |

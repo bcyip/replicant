@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe "Misc Input" do
+describe "Misc Input", :type=>'input_validation' do
   before(:each) do
     @chat = Chat.new
     # TODO: delay in response from WebSocket
@@ -21,11 +21,26 @@ describe "Misc Input" do
   end
 
   describe "where I enter invalid commands: " do
+
     let(:expected_output) {"I'm sorry, I don't understand what you mean."}
+
     it "random alpha values" do
       @chat.send_message('something or another')
       delay(0.5)
       expect(@chat.ws.response_msg).to eq(expected_output)
     end
+
+    it "random numeric values" do
+      @chat.send_message('123465')
+      delay(0.5)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+
+    it "random alpha & numeric values" do
+      @chat.send_message('i count to 4 minutes and 5 seconds')
+      delay(0.5)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+
   end
 end

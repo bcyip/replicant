@@ -20,9 +20,34 @@ describe "Misc Input", :type=>'input_validation' do
     expect(@chat.ws.response_msg).to eq(expected_output)
   end
 
-  describe "where I enter invalid commands: " do
+  describe "test closing connection message " do
+    let(:expected_output) {"Connection lost. Goodbye!"}
 
+    it "when no message is sent" do
+      pending("Confirm with Developer on Behavior")
+      fail
+      delay(30)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+
+    it "when message sent with expiration after connection timeout" do
+      pending("Confirm with Developer on Behavior")
+      fail
+      wait_time = 30
+      @chat.send_message("remind me in #{wait_time} minutes to do something")
+      delay(wait_time)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+  end
+
+  describe "where I enter invalid commands: " do
     let(:expected_output) {"I'm sorry, I don't understand what you mean."}
+
+    it "has an empty string message" do
+      @chat.send_message('')
+      delay(0.5)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
 
     it "random alpha values" do
       @chat.send_message('something or another')
@@ -41,6 +66,28 @@ describe "Misc Input", :type=>'input_validation' do
       delay(0.5)
       expect(@chat.ws.response_msg).to eq(expected_output)
     end
-
   end
+
+  describe "message and time size: " do
+    let(:expected_output) {"I'm sorry, I don't understand what you mean."}
+
+    it "max message size" do
+      pending("Follow Up Dev: what is max size to send to websocket")
+      fail
+      message_size = "some long string"
+      @chat.send_message("remind me in 10 minutes to #{message_size}")
+      delay(0.5)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+
+    it "max reminder time" do
+      pending("Follow Up Dev: what is max time for websocket to process?")
+      fail
+      max_time = 99999
+      @chat.send_message("remind me in #{max_time} minutes to check max reminder time")
+      delay(0.5)
+      expect(@chat.ws.response_msg).to eq(expected_output)
+    end
+  end
+
 end

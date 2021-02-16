@@ -1,88 +1,91 @@
 # Chatbot Test List
 
-Here are a list of tests that are currently in the test suite.  Specific tests will be marked as pending when running 'rspec' and not count as failures if they are a work in progress
+Here are a list of tests that are currently in the test suite.  Specific tests will be marked as pending when running 'rspec' and not count as failures if they are a work in progress.
 
-### Input
+TODO: separate tests from unit tests and E2E tests and integrate to CI process for pre-code merge and regression run post merge
+
+### Validations
 - Opening Statement when starting chatbot
 - help message displays correct output
 - closing connection
+  - no message sent
+  - message sent set to expire after connection timeout
 - invalid commands
+  - empty message
+  - message size too large for websocket
   - alpha char only
   - numeric only
   - alpha + numeric
+- sizing
+  - max out seconds response
 
 ### Add reminders
 - Add reminder no time unit
   - remind me to make dinner
 - Add reminder in seconds unit
+  - no message only time unit
   - remind me to make dinner in 0 seconds
-  - remind me to make dinner in 1 seconds
-  - remind me to make dinner in 01 seconds
-  - remind me to make dinner in 10 seconds
+  - remind me to make dinner in 5 seconds
+  - remind me to make dinner in 05 seconds
   - remind me to make dinner in 65 seconds
 - Add reminder in minute unit
+  - no message only time unit
   - remind me to make dinner in 0 minutes
   - remind me to make dinner in 1 minutes
   - remind me to make dinner in 01 minutes
-  - remind me to make dinner in 10 minutes
   - remind me to make dinner in 65 minutes
 - Add reminder in hour unit
+  - no message only time unit
   - remind me to make dinner in 0 hours
   - remind me to make dinner in 1 hours
   - remind me to make dinner in 01 hours
-  - remind me to make dinner in 10 hours
   - remind me to make dinner in 25 hours  
-- Add reminder with seconds and minutes
-  - remind me to make dinner in 0 seconds and 0 minutes
-  - remind me to make dinner in 1 seconds and 0 minutes
-  - remind me to make dinner in 0 seconds and 1 minutes
-  - remind me to make dinner in 1 seconds and 1 minutes
-  - remind me to make dinner in 00 seconds and 00 minutes
-  - remind me to make dinner in 01 seconds and 0 minutes
-  - remind me to make dinner in 0 seconds and 01 minutes
-  - remind me to make dinner in 01 seconds and 01 minutes  
-  - remind me to make dinner in 65 seconds and 0 minutes
-  - remind me to make dinner in 0 seconds and 65 minutes
-  - remind me to make dinner in 65 seconds and 65 minutes
-- Add reminder with minutes and hours
-  - remind me to make dinner in 0 minutes and 0 hours
-  - remind me to make dinner in 1 minutes and 0 hours
-  - remind me to make dinner in 0 minutes and 1 hours
-  - remind me to make dinner in 1 minutes and 1 hours
-  - remind me to make dinner in 00 minutes and 00 hours
-  - remind me to make dinner in 01 minutes and 0 hours
-  - remind me to make dinner in 0 minutes and 01 hours
-  - remind me to make dinner in 01 minutes and 01 hours  
-  - remind me to make dinner in 65 minutes and 0 hours
-  - remind me to make dinner in 0 minutes and 25 hours
-  - remind me to make dinner in 65 minutes and 25 hours
-- Add reminder with seconds, minutes, hours
 
 
 ### List reminders
   - Syntax options
-    - list me reminders
-    - list all reminders
-    - list of reminders
-    - list my reminders
-    - show me reminders
-    - show all reminders
-    - show of reminders
-    - show my reminders
-    - tell me reminders
-    - tell all reminders
-    - tell of reminders
-    - tell my reminders
-    - list show me reminders
-    - list tell me reminders
-    - show tell me reminders
-    - list me all reminders
-    - list me of reminders
-    - list me my reminders
-    - list me all of reminders
-    - list me all my reminders
-    - list me all of my reminders
+    - valid
+      - list reminders
+      - list me reminders
+      - list all reminders
+      - list of reminders
+      - list my reminders
+      - list me all reminders
+      - list me of reminders
+      - list me my reminders
+      - list me all of reminders
+      - list me all my reminders
+      - list me all of my reminders
+      - show reminders
+      - show me reminders
+      - show all reminders
+      - show of reminders
+      - show my reminders
+      - show me all reminders
+      - show me of reminders
+      - show me my reminders
+      - show me all of reminders
+      - show me all my reminders
+      - show me all of my reminders
+      - tell reminders
+      - tell me reminders
+      - tell all reminders
+      - tell of reminders
+      - tell my reminders
+      - tell me all reminders
+      - tell me of reminders
+      - tell me my reminders
+      - tell me all of reminders
+      - tell me all my reminders
+      - tell me all of my reminders
+    - invalid
+      - list reminder
+      - show reminder
+      - tell reminder
+      - my reminders
+      - show reminders
   - Varied Reminder count
+    - 0 reminders
     - add 1 reminder
     - add 2 reminder
     - add 3 reminder
@@ -90,22 +93,66 @@ Here are a list of tests that are currently in the test suite.  Specific tests w
 
 ### Clear reminders
   - with syntax variation
-    - clear reminder 1
-    - delete reminder 1
-    - remove reminder 1
-    - forget reminder 1
-    - clear delete reminder 1
-    - clear remove reminder 1
-    - clear forget reminder 1
-    - delete remove reminder 1
-    - delete forget reminder 1
+    - valid
+      - clear reminder 1
+      - clear all reminders
+      - clear all of reminders
+      - clear all of my reminders
+      - clear of reminders
+      - clear of my reminders
+      - clear my reminders
+      - delete reminder 1
+      - delete all reminders
+      - delete all of reminders
+      - delete all of my reminders
+      - delete of reminders
+      - delete of my reminders
+      - delete my reminders
+      - remove reminder 1
+      - remove all reminders
+      - remove all of reminders
+      - remove all of my reminders
+      - remove of reminders
+      - remove of my reminders
+      - remove my reminders
+      - forget reminder 1
+      - forget all reminders
+      - forget all of reminders
+      - forget all of my reminders
+      - forget of reminders
+      - forget of my reminders
+      - forget my reminders
+    - invalid
+      - clear reminders 1
+      - my reminders
+      - all reminders
   - delete reminders
-    - delete 0 reminders
     - delete 1 of 1 reminders
     - delete first of 2 reminders
     - delete 3rd of 5 reminders
     - delete 5th of 5 reminders
-    - delete first of 5 reminders after reminder is executed
-    - delete 3rd of 5 reminders after reminder is executed
-    - delete 5th of 5 reminders after reminder is executed
+    - delete reminder after it is executed (seconds)
+    - delete reminder after it is executed (minutes)
+    - delete reminder after it is executed (hours)
     - delete all 5 reminders
+    - delete all reminders when none exist
+  - delete invalid reminders
+    - delete 0 reminders
+    - delete reminder id twice
+
+### Reminder Timer
+  - seconds
+    - one reminder 30 seconds
+      - 15s passed
+      - 0s left
+      - reminder no longer listed
+    - multiple reminder 15s and 45s
+      - 15s passed
+      - 0s left
+      - reminder no longer listed
+  - minutes
+    - one reminder
+    - multiple reminder
+  - hours
+    - one reminder
+    - multiple reminder

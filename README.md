@@ -42,6 +42,9 @@ npm run start
 
 Once both are running, you can connect to `http://localhost:7777` (note the port!) to interact with the chatbot. Any change to the server or client code will automatically recompile and restart the appropriate process.
 
+### Server Test List
+A list of existing and pending tests can be found under `server/spec/support/README.md`
+
 ### Run Tests
 Build and run the Docker image for the app as follows:
 
@@ -61,6 +64,6 @@ rspec --tag type:<value>  # run subset of tests
 #### Existing test subsets
 | Test Type               | value            |
 | :-------------          | :-----:          |
-| input_spec.rb           | input_validation |
+| validation_spec.rb      | input_validation |
 | reminders_add_spec.rb   | add_reminders    |
-|  reminders_list_spec.rb | list_reminders   |
+| reminders_list_spec.rb  | list_reminders   |

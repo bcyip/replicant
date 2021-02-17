@@ -286,6 +286,8 @@ describe "List Reminders", :type=>'list_reminders' do
     end
 
     it "1 reminders" do
+      pending('TO BE IMPLEMENTED: parsing html table response')
+      fail
       add_msg = "remind me to make dinner in 5 minutes"
       @chat.send_message(add_msg)
       delay(0.5)
@@ -293,12 +295,12 @@ describe "List Reminders", :type=>'list_reminders' do
       @chat.send_message(list_msg)
       delay(0.5)
       parse_html_table(@chat.ws.response_msg)
-      pending('TO BE IMPLEMENTED: parsing html table response')
-      fail
       expect(@chat.ws.response_msg).to eq("")
     end
 
     it "2 reminders" do
+      pending('TO BE IMPLEMENTED: parsing html table response')
+      fail
       add_msg1 = "remind me to make dinner in 5 minutes"
       @chat.send_message(add_msg1)
       add_msg2 = "remind me to eat dinner in 60 minutes"
@@ -308,12 +310,12 @@ describe "List Reminders", :type=>'list_reminders' do
       @chat.send_message(list_msg)
       delay(0.5)
       parse_html_table(@chat.ws.response_msg)
-      pending('TO BE IMPLEMENTED: parsing html table response')
-      fail
       expect(@chat.ws.response_msg).to eq("")
     end
 
     it "3 reminders" do
+      pending('TO BE IMPLEMENTED: parsing html table response')
+      fail
       add_msg1 = "remind me to make dinner in 5 minutes"
       @chat.send_message(add_msg1)
       add_msg2 = "remind me to eat dinner in 60 minutes"
@@ -325,9 +327,12 @@ describe "List Reminders", :type=>'list_reminders' do
       @chat.send_message(list_msg)
       delay(0.5)
       parse_html_table(@chat.ws.response_msg)
-      pending('TO BE IMPLEMENTED: parsing html table response')
-      fail
       expect(@chat.ws.response_msg).to eq("")
+    end
+
+    it "add 3 reminders, let 1 execute" do
+      pending("TO BE IMPLEMENTED: parsing html table response")
+      fail
     end
 
     it "maximum reminders that can be added" do

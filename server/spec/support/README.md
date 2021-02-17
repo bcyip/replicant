@@ -89,6 +89,7 @@ TODO: separate tests from unit tests and E2E tests and integrate to CI process f
     - add 1 reminder
     - add 2 reminder
     - add 3 reminder
+    - add 3 reminders let 1 execute
     - What is reminder count cap
 
 ### Clear reminders
@@ -142,17 +143,11 @@ TODO: separate tests from unit tests and E2E tests and integrate to CI process f
 
 ### Reminder Timer
   - seconds
-    - one reminder 30 seconds
-      - 15s passed
-      - 0s left
-      - reminder no longer listed
-    - multiple reminder 15s and 45s
-      - 15s passed
-      - 0s left
-      - reminder no longer listed
+    - 5s elapsed on 10s reminder
+    - 5s elapsed on reminder 10s and 20s
   - minutes
-    - one reminder
-    - multiple reminder
+    - 1min elapsed on 5min reminder
+    - 30s elapsed with 1min and 5min reminders
   - hours
-    - one reminder
-    - multiple reminder
+    - 1min elapsed on 1hr reminder
+    - 30s elapsed with 1hr and 2hr reminders

@@ -40,7 +40,7 @@ describe "Reminder Timers: ", :type=>'timer_reminders' do
     end
   end
 
-  describe "minutes", :type=>'timer_seconds' do
+  describe "minutes", :type=>'timer_minutes' do
     it "1min elapsed on 5min reminder" do
       pending("TO BE IMPLEMENTED: parsing html table response")
       fail
@@ -66,7 +66,7 @@ describe "Reminder Timers: ", :type=>'timer_reminders' do
     end
   end
 
-  describe "hours", :type=>'timer_seconds' do
+  describe "hours", :type=>'timer_hours' do
     it "1min elapsed on 1hr reminder" do
       pending("TO BE IMPLEMENTED: parsing html table response")
       fail

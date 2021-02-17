@@ -381,7 +381,7 @@ describe "Clear Reminders", :type=>'clear_reminders' do
     end
   end
 
-  describe "delete invalid reminders", :type=>'reminder_delete_invalid' do
+  describe "delete invalid reminders", :type=>'delete_invalid' do
     it "delete reminder by ID when none exist" do
       delete_msg = "delete reminder 1"
       @chat.send_message(delete_msg)

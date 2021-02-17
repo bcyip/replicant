@@ -58,12 +58,26 @@ If this is the FIRST time running the tests open a new terminal and run the foll
 Open a new terminal and run the following command in chatbot-challenge/server
 ```
 rspec # run all tests
+rspec spec/<file_name> # run tests in file
 rspec --tag type:<value>  # run subset of tests
 ```
 
+### Existing Test Files
+
+| File                    |
+| :-------------          |
+| reminders_clear_spec.rb |
+| reminders_list_spec.rb  |
+| timer_spec.rb           |
+| validation_spec.rb      |
+
 #### Existing test subsets
-| Test Type               | value            |
-| :-------------          | :-----:          |
-| validation_spec.rb      | input_validation |
-| reminders_add_spec.rb   | add_reminders    |
-| reminders_list_spec.rb  | list_reminders   |
+| Value                                                         |  
+| :-------------                                                |
+| valid_syntax, invalid_syntax                                  |
+| add_seconds, add_minutes, add_hours                           |   
+| timer_seconds, timer_minutes, timer_hours                     |
+| reminder_delete, delete_invalid                               |
+| keyword_list, keyword_show, keyword_tell                      |
+| reminder_counts                                               |
+| keyword_clear, keyword_delete, keyword_forget, keyword_remove |

@@ -14,7 +14,7 @@ describe "Add Reminders", :type=>'add_reminders' do
   let(:make_dinner) {'make dinner'}
   let(:remind_announce) {"Ok, I will remind you to"}
 
-  it "does not mention any unit of time", type=>'invalid_syntax' do
+  it "does not mention any unit of time", :type=>'invalid_syntax' do
     add_msg = "Remind me to go home"
     @chat.send_message(add_msg)
     delay(0.5)
@@ -22,7 +22,7 @@ describe "Add Reminders", :type=>'add_reminders' do
   end
 
   describe "In seconds unit", :type=>'add_seconds' do
-    it "without a message", type=>'invalid_syntax' do
+    it "without a message", :type=>'invalid_syntax' do
       add_msg = "Remind me in 10 seconds"
       @chat.send_message(add_msg)
       delay(0.5)
@@ -59,7 +59,7 @@ describe "Add Reminders", :type=>'add_reminders' do
   end
 
   describe "In minutes unit", :type=>'add_minutes' do
-    it "without a message", type=>'invalid_syntax' do
+    it "without a message", :type=>'invalid_syntax' do
       add_msg = "Remind me in 10 minutes"
       @chat.send_message(add_msg)
       delay(0.5)
@@ -96,7 +96,7 @@ describe "Add Reminders", :type=>'add_reminders' do
   end
 
   describe "In hour unit", :type=>'add_hours' do
-    it "without a message", type=>'invalid_syntax' do
+    it "without a message", :type=>'invalid_syntax' do
       add_msg = "Remind me in 1 hours"
       @chat.send_message(add_msg)
       delay(0.5)
